@@ -130,7 +130,7 @@ function generater_req_2(source_id, chapter_id, event_id)
 {
 	var temp_time = time_clock.getTime();
 	req_time_stamps[2] = temp_time;
-	reurn Object.assign({}, {
+	return Object.assign({}, {
 								request_index: 2, 
 								time_stamp: temp_time, 
 								source_id: source_id, 

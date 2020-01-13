@@ -211,7 +211,7 @@ function init_graph(graph_data, myChart){
 myChart.on('click', function (params) {
     //发送学习行为
 	//进入节点
-	send_msg(ws, generater_req_1(params.data.nodes.value, 1);
+	send_msg(ws, generater_req_1(params.data.nodes.value, 1));
     $("div#main").fadeOut("slow", function()
     {
         $("div#source_display_1").fadeIn("slow");
