@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--必要样式-->  
+    <link rel="icon" href="img/logo.ico" type="image/x-icon">
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/demo1.css" rel="stylesheet" type="text/css" />
+    <link href="css/loaders.css" rel="stylesheet" type="text/css" />
+    <link id="layuicss-layer" rel="stylesheet" href="http://www.simtoogo.com/layui/css/modules/layer/default/layer.css?v=3.0.3" media="all">
+    <link rel="stylesheet" href="//unpkg.com/view-design/dist/styles/iview.css">
+	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- import iView -->
+    <script src="//unpkg.com/view-design/dist/iview.min.js"></script>
+    <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <!-- 导入本地的index.js -->
+    <style>
+        .block{
+            box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
+            opacity: 1;
+            top: 20px;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
+            -webkit-transition-property: -webkit-transform,opacity,box-shadow,top,left;
+            transition-property: transform,opacity,box-shadow,top,left;
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            -webkit-transform-origin: 161px 100%;
+            -ms-transform-origin: 161px 100%;
+            transform-origin: 161px 100%;
+            -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            position: relative;
+            width: 360px;
+            /*border-top: 2px solid #D8312A;*/
+            height: 600px;
+            position: absolute;
+            left: 50px;
+            top: 10%;
+            margin: auto;
+            padding: 0px 30px 30px 30px;
+            background: #35394a;
+            /* Old browsers */
+            /* FF3.6+ */
+            background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #35394a), color-stop(100%, rgb(0, 0, 0)));
+            /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            background: linear-gradient(230deg, rgba(53, 57, 74, 0) 0%, rgb(0, 0, 0) 100%);
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(53, 57, 74, 0)', endColorstr='rgb(0, 0, 0)',GradientType=1 );
+            /* IE6-9 fallback on horizontal gradient */
+        }
+        .block-p{
+            margin: 20px auto;
+            height: 10px;
+            color: #658588;
+            font-size: 36px;
+            text-align: center;
+        }
+        .block-button-div{
+            margin: 200px auto 0 auto;
+            padding-left: 30px;
+
+        }
+        .button{
+            height: 80px;
+            width: 240px;
+            margin: 0 auto;
+            border: none;
+            background-color: rgb(113, 44, 104);
+            opacity: 0.8;
+            color: #ffffff;
+            text-align: center;
+            font-size: 20px;
+        }
+        .button.type3 {
+            color: #658588;
+        }
+        .button.type3.type3::after,.button.type3.type3::before {
+            content:"";
+            display:block;
+            position:absolute;
+            width:20%;
+            height:20%;
+            border:2px solid;
+            transition:all 0.6s ease;
+            border-radius:2px;
+        }
+        .button.type3.type3::after {
+            bottom:0;
+            right:0;
+            border-top-color:transparent;
+            border-left-color:transparent;
+            border-bottom-color:#435a6b;
+            border-right-color:#435a6b;
+        }
+        .button.type3.type3::before {
+            top:0;
+            left:0;
+            border-bottom-color:transparent;
+            border-right-color:transparent;
+            border-top-color:#435a6b;
+            border-left-color:#435a6b;
+        }
+        .button.type3.type3:hover:after,.button.type3.type3:hover:before {
+            border-bottom-color: #e5e2e0;
+            border-right-color:#e5e2e0;
+            border-top-color:#e5e2e0;
+            border-left-color:#e5e2e0;
+            width:100%;
+            height:100%;
+        }
+        .intro{
+            height: 80%;
+            width: 40%;
+            position: fixed;
+            top: 100px;
+            left: 450px;
+            background-color: transparent;
+        }
+        .intro-div{
+            height:30%;
+            width: 90%;
+            padding-left: 5%;
+            margin: 2px auto;
+            border: 2px;
+            border-color: #fff;
+        }
+        .intro-div-img{
+            width: 45%;
+            height: 90%;
+            margin: 2px;
+            float: left;
+            background-color: black;
+        }
+    </style>
+</head>
+<body onload="check()">
+<a id="tourists-model" href="tourists.html">
+    <div class="block">
+        <div class="block-p">
+            游客
+        </div>
+        </br>
+        <div class="block-p">
+            模式
+        </div>
+        <div class="block-button-div">
+            <button class="button type3">点击进入</button>
+        </div>
+    </div>
+</a>
+<a id="user-model">
+    <div class="block" style="position:absolute; right: -1000px;top: 10%;">
+        <div class="block-p">
+            用户
+        </div>
+        </br>
+        <div class="block-p">
+            模式
+        </div>
+        <div class="block-button-div">
+            <button class="button type3" >点击进入</button>
+        </div>
+    </div>
+</a>
+<script>
+    var x = getCookie("cookiename");
+    //cookie中有用户信息，跳过登陆页面
+	function check()
+	{
+     if(getCookie("user"))
+	 {
+		document.getElementById("user-model").href="learn_content.html";
+	}	 
+	else{
+		document.getElementById("user-model").href="hello.html";
+	}
+	 }
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+</script>
+<div class="intro">
+    <div class="intro-div">
+        <div class="intro-div-img"><img></div>
+        <div class="intro-div-img"><img></div>
+    </div>
+    <div class="intro-div">
+        <div class="intro-div-img"><img></div>
+        <div class="intro-div-img"><img></div>
+    </div>
+    <div class="intro-div">
+        <div class="intro-div-img"><img></div>
+        <div class="intro-div-img"><img></div>
+    </div>
+</div>
+<!--背景特效引入文件-->
+<link href="css/layui.css" rel="stylesheet" type="text/css" />
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/Particleground.js" type="text/javascript"></script>
+<script type="text/javascript">
+    //粒子背景特效
+    $('body').particleground({
+        dotColor: '#E8DFE8',
+        lineColor: '#133b88'
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+/* =============================================================================
+   HTML5 CSS Reset Minified - Eric Meyer
+   ========================================================================== */
+
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+/* =============================================================================
+   My CSS
+   ========================================================================== */
+
+/* ---- base ---- */
+
+html,body{ 
+	width:100%;
+	height:100%;
+	background:#111;
+}
+
+html{
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body{
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas{
+  display:block;
+  vertical-align:bottom;
+}
+
+
+/* ---- stats.js ---- */
+
+.count-particles{
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: .8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+
+.js-count-particles{
+  font-size: 1.1em;
+}
+
+#stats,
+.count-particles{
+  -webkit-user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+#stats{
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.count-particles{
+  border-radius: 0 0 3px 3px;
+}
+
+
+/* ---- particles.js container ---- */
+
+#particles-js{
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  background-image: url('');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 700px;
+  margin-top: 150px;
+  margin-left: 50px;
+}
+#grid .card {
+  background-color: #ccc;
+  width: 150px;
+  height: 150px;
+  transition: all 0.1s ease;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  cursor: pointer;
+}
+#grid .card:hover {
+  -webkit-transform: scale(2);
+  transform: scale(2);
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+#grid .card:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+#grid .card .reflection {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  transition: all 0.1s ease;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+}
+#grid .card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -webkit-filter: grayscale(0.65);
+  filter: grayscale(0.65);
+  transition: all 0.3s ease;
+}
+.wrapper {
+  width: calc(3.5 * var(--width));
+  height: calc(4 * var(--height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.button {
+  position: relative;
+  width: calc(0.8 * var(--width));
+  height: calc(0.7 * var(--height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 0 0.8rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0, 0.22, 0.3, 1);
+}
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+.button span {
+  color: #fff;
+  font-size: 1rem;
+  z-index: 10;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.button._1 {
+  background: #2980b9;
+}
+.button._2 {
+  background: #8e44ad;
+}
+.button._3 {
+  background: #16a085;
+}
+.button._4 {
+  background: #e74c3c;
+}
+.button .back {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: url(#filter);
+  border-radius: 50%;
+  z-index: 5;
+  transition: all 2.5s cubic-bezier(0.1, 0.22, 0.3, 1);
+}
+.button._1 .back {
+  left: -50%;
+  top: -50%;
+  background: #27ae60;
+}
+.button._2 .back {
+  right: -50%;
+  top: -50%;
+  background: #c0392b;
+}
+.button._3 .back {
+  left: -50%;
+  bottom: -50%;
+  background: #34495e;
+}
+.button._4 .back {
+  right: -50%;
+  bottom: -50%;
+  background: #2980b9;
+}
+.button:hover .back {
+  width: calc(2 * var(--width));
+  height: calc(2 * var(--height));
+}
+
+@media only screen and (max-width: 750px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .button {
+    margin: 0.8rem 0;
+  }
+}
+:root {
+  --height: 100px;
+  --width: 200px;
+}
+

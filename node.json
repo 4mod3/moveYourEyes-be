@@ -1,0 +1,67 @@
+{
+	"nodes":[
+		{
+			"name": "1",
+			"value": 10,
+			"symbolSize": 180,
+			"category": 1,
+			"label": "one",
+			"url": "123.com"
+		},
+		{
+			"name": "2",
+			"value": 20,
+			"symbolSize": 110,
+			"label": "two",
+			"category": 2
+		},
+		{
+			"name": "3",
+			"value": 20,
+			"symbolSize": 120,
+			"label": "three",
+			"category": 2
+		},
+		{
+			"name": "4",
+			"value": 20,
+			"symbolSize": 120,
+			"category": 2
+		},
+		{
+			"name": "5",
+			"value": 20,
+			"symbolSize": 130,
+			"category": 2
+		},
+		{
+			"name": "6",
+			"value": 20,
+			"symbolSize": 140,
+			"category": 2
+		}
+	],
+	"edges":[
+		{
+			"source": "1",
+			"target": "2"
+		},
+		{
+			"source": "2",
+			"target": "3"
+		},
+		{
+			"source": "3",
+			"target": "4"
+		},
+		{
+			"source": "3",
+			"target": "4"
+		},
+		{
+			"source": "6",
+			"target": "4"
+		}
+	]
+	
+}
