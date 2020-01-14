@@ -231,7 +231,8 @@ function node_click_register(myChart)
 
 $("div#source_display_2").click(function(){
 	//开始阅读文字学习
-	req_2_warpper(source_txt.chapter_id, 4);
+	//node_test
+	//req_2_warpper(source_txt.chapter_id, 4);
     $("div#source_display_1").fadeOut("slow");
     $("div#source_display_2").fadeOut("slow");
     $("div#wrap").fadeOut("slow");
@@ -242,7 +243,8 @@ $("div#source_display_2").click(function(){
 })
 $("div#content").click(function(){
 	//阅读文字学习结束
-	req_2_warpper(source_txt.chapter_id, 5);
+	//node_test
+	//req_2_warpper(source_txt.chapter_id, 5);
     $("div#content").fadeOut("slow",function () {
         $("div#source_display_1").fadeIn("slow");
         $("div#source_display_2").fadeIn("slow");
