@@ -24,7 +24,6 @@ $(document).ready(function(){
 	//将窗口的状态改变
 	windowstatus=false;
 	var cookie=$.cookie("user");
-	console.log('123');
 	var box=new jBox('Modal', {
 		  width: 450,
 		  height: 250,
@@ -61,7 +60,8 @@ $(document).ready(function(){
 		      //执行加载函数
 		      //load_img();
 		      //打开socket主连接
-		      WebSocket_index(cookie);
+			  //node_test
+		      //WebSocket_index(cookie);
 		      //记录下登陆时间
 		      $.ajax({url:newDomainname+"Update_logtime/"+cookie,success:function(result){
 		    	  console.log(result);
@@ -81,7 +81,9 @@ $(document).ready(function(){
 		if(socket_exist){
 			myChart = echarts.init(document.getElementById('charts'));
 			node_click_register(myChart);
-			req_0_warpper();
+			//node_test
+			init_graph(graph_data, myChart);
+			//req_0_warpper();
 		}
 });
 

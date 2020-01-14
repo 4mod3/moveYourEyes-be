@@ -163,7 +163,6 @@ function init_graph(graph_data, myChart){
 
                 //coordinateSystem: 'cartesian2d',
 
-                roam: true,
                 layout: 'force',
                 force : {
                     initLayout: 'circular',
@@ -174,6 +173,10 @@ function init_graph(graph_data, myChart){
 
                 data: graph_data.nodes,
                 links: graph_data.edges,
+				//node_test
+				categories: [
+					1,2,3
+				],
 
                 focusNodeAdjacency : true,
                 itemStyle: {
@@ -193,7 +196,7 @@ function init_graph(graph_data, myChart){
                     curveness: 0.3
                 },
                 emphasis: {
-                    show: true,
+                    //show: true,
                     lineStyle: {
                         width: 40
                     }
@@ -213,7 +216,9 @@ function node_click_register(myChart)
 	myChart.on('click', function (params) {
 	    //发送学习行为
 		//进入节点
-		send_msg(ws, generater_req_1(params.data.nodes.value, 1));
+		console.log(params);
+		//node_test
+		//send_msg(ws, generater_req_1(params.data.value, 1));
 	    $("div#main").fadeOut("slow", function()
 	    {
 	        $("div#source_display_1").fadeIn("slow");
