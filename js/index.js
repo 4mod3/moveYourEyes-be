@@ -24,6 +24,7 @@ $(document).ready(function(){
 	//将窗口的状态改变
 	windowstatus=false;
 	var cookie=$.cookie("user");
+	console.log('123');
 	var box=new jBox('Modal', {
 		  width: 450,
 		  height: 250,
@@ -52,7 +53,7 @@ $(document).ready(function(){
 		    },
 		    success: function(response) {
 		    	 console.log(response);
-		    	if(response.pass=="true"){
+		    	if(response.pass == true){
 	      this.setContent('<div class="ajax-success">欢迎您的回归<tt>' + response.name + '</tt></div>');
 		      /*for(var i=0;i<response.picture.length;i++){
 		    	  picture_path_array.push(response.picture[i]);
@@ -77,8 +78,11 @@ $(document).ready(function(){
 		
 		//请求显示学习目录
 		
-		myChart = echarts.init(document.getElementById('charts'));
-		req_0_warpper();
+		if(socket_exist){
+			myChart = echarts.init(document.getElementById('charts'));
+			node_click_register(myChart);
+			req_0_warpper();
+		}
 });
 
 //学习目录请求封装
