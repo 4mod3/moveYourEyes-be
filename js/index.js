@@ -34,7 +34,7 @@ ws_manager = Object.defineProperty(ws_manager, 'socket_exist',{
 			socket_exist = value;
 			console.log("socket_exist::set:"+ socket_exist);
 			if(value){
-				//req_0_warpper();
+				req_0_warpper();
 			}
 		},
 	})
@@ -79,7 +79,7 @@ $(document).ready(function(){
 		    success: function(response) {
 		    	 console.log(response);
 		    	if(response.pass == true){
-	      this.setContent('<div class="ajax-success">欢迎您的回归<tt>' + response.name + '</tt></div>');
+	      this.setContent('<div class="ajax-success">欢迎您的回归<tt>' + response.name + '. 请四处探索试试' + '</tt></div>');
 		      /*for(var i=0;i<response.picture.length;i++){
 		    	  picture_path_array.push(response.picture[i]);
 		      }*/
@@ -211,7 +211,7 @@ function WebSocket_index(cookie)
    if ("WebSocket" in window&&!ws_manager.socket_exist)
    {  
       // 打开一个 web socket
-      ws_manager.ws= new WebSocket(wsname+"spyder/"+cookie);
+      ws_manager.ws= new WebSocket(wsname+"ws/"+cookie);
       ws_manager.ws.onopen = function()
       {
     	 ws_manager.socket_exist=true;
@@ -245,6 +245,8 @@ function WebSocket_index(cookie)
       };  
       ws_manager.ws.onmessage = function (evt) 
       { 
+		  console.log("Toggle websocket onmessage!");
+		  console.log(evt.data);
 		  var received_msg = JSON.parse(evt.data);
 		  console.log(received_msg);
 		if(received_msg !== null && received_msg.hasOwnProperty('response_index') ){
