@@ -5,10 +5,8 @@
 //图片存储对象
 var picture_path_array=[];
 var picture_img_array=new Array();
-//标记元素，记录websocket是否存在
-var socket_exist=false;
+
 //socket连接对象
-var ws;
 //请求时间戳数组
 var req_time_stamps = new Array(3);
 var time_clock = new Date();
@@ -20,11 +18,38 @@ var video_on_hand;
 var source_id_now;
 //记录页面打开状态，防止页面刷新时仍然执行页面关闭函数
 var windowstatus=true;
+
+//创建websocket_manager
+//定义socket_exist的get和set函数
+var ws_manager={
+	ws: {},
+	socket_exist: false
+};
+ws_manager = Object.defineProperty(ws_manager, 'socket_exist',{
+		get: function(){
+			console.log('socket_exist::get:'+socket_exist);
+			return socket_exist;
+		},
+		set: function(value){
+			socket_exist = value;
+			console.log("socket_exist::set:"+ socket_exist);
+			if(value){
+				//req_0_warpper();
+			}
+		},
+	})
+ws_manager.socket_exist = false;
+
 $(document).ready(function(){
-	//将窗口的状态改变
-	windowstatus=false;
+	//学习目录初始化
+	myChart = echarts.init(document.getElementById('charts'));
+	node_click_register(myChart);
+	myChart.showLoading();
+	//myChart.hideLoading();
+	console.log(ws_manager.socket_exist+"123");
+	// //将窗口的状态改变
+	// windowstatus=false;
 	var cookie=$.cookie("user");
-	console.log('123');
 	var box=new jBox('Modal', {
 		  width: 450,
 		  height: 250,
@@ -76,29 +101,24 @@ $(document).ready(function(){
 		});
 	    box.open();
 		
-		//请求显示学习目录
-		
-		if(socket_exist){
-			myChart = echarts.init(document.getElementById('charts'));
-			node_click_register(myChart);
-			req_0_warpper();
-		}
+
 });
 
 //学习目录请求封装
 function req_0_warpper()
 {
 	if(typeof(myChart) === "undefined"){
-		myChart = echarts.init(document.getElementById('main'));
+		console.log("reget mycharts");
+		myChart = echarts.init(document.getElementById('charts'));
 	}
-	myChart.showLoading();
-	send_msg(ws, generater_req_0());
+	//myChart.showLoading();
+	send_msg(ws_manager.ws, generater_req_0());
 }
 
 //学习内容请求封装
 function req_1_warpper()
 {
-	send_msg(ws, generater_req_1());
+	send_msg(ws_manager.ws, generater_req_1());
 }
 
 //学习行为发送封装
@@ -106,7 +126,7 @@ function req_1_warpper()
 function req_2_warpper(chapter_id, event_id)
 {
 	if(send_action_status){
-		send_msg(ws, generater_req_2(source_id_now, chapter_id, 4));
+		send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, 4));
 		send_action_status = false;
 	}else{
 		console.log("warning, action sending is bussy!");
@@ -188,13 +208,13 @@ var content="";
 var title="";
 function WebSocket_index(cookie)
 {
-   if ("WebSocket" in window&&!socket_exist)
+   if ("WebSocket" in window&&!ws_manager.socket_exist)
    {  
       // 打开一个 web socket
-      ws= new WebSocket(wsname+"ws/"+cookie);
-      ws.onopen = function()
+      ws_manager.ws= new WebSocket(wsname+"spyder/"+cookie);
+      ws_manager.ws.onopen = function()
       {
-    	 socket_exist=true;
+    	 ws_manager.socket_exist=true;
          // Web Socket 已连接上，使用 send() 方法发送数据
          //ws.send(jsonstr);
          //alert("数据发送中...");
@@ -223,7 +243,7 @@ function WebSocket_index(cookie)
     	 
     	 **/
       };  
-      ws.onmessage = function (evt) 
+      ws_manager.ws.onmessage = function (evt) 
       { 
 		  var received_msg = JSON.parse(evt.data);
 		  console.log(received_msg);
@@ -279,11 +299,11 @@ function WebSocket_index(cookie)
 			 //alert("数据已接收..."+received_msg);
 		 }
       }; 
-      ws.onclose = function()
+      ws_manager.ws.onclose = function()
       { 
     	  alert("确定退出嘛？");
          // 关闭 websocket
-    	  socket_exist=false; 
+    	  ws_manager.socket_exist=false; 
       };
    }
    
@@ -330,9 +350,10 @@ function send_msg(ws, send_obj)
 	if(!isJson(send_obj)){
 		console.log("error, sending attribute wrong!");
 	}
-	else if(socket_exist){
-		ws.send(send_obj.toJSONString());	
+	else if(ws_manager.socket_exist){
+		ws.send(JSON.stringify(send_obj));	
 	}else{
 		window.open("hello.html",'_self');
+		console.log("error, websocket connection failed!");
 	}
 }
