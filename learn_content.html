@@ -177,7 +177,7 @@
 		<label id='sideMenuControl' for='sideToggle'>=</label>
 	</div>
 
-		<div class="htmleaf-container" id="main" style="position: relative; top:-400px;left: -200px;">
+		<div class="htmleaf-container" id="main">
 				
 				<section id="scene" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0" data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
 					<div class="layer main" data-depth="1.0">
@@ -286,6 +286,8 @@
             var parallaxInstance = new Parallax (content,{
                 pointerEvents:true
 			});
+			var scene = document.getElementById('scene');
+			var parallaxGraph = new Parallax(scene);
 			function changeBG1() {
       		  	document.getElementById("nav_div_h1").classList = "selected";
 			}
