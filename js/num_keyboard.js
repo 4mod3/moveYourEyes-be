@@ -78,7 +78,7 @@
             		            $.cookie(data.cookiename, data.cookievalue, {expires: data.cookietime, path: '/'});
             		            alert('注册成功，将在几秒钟后自动跳转！');
             		            setTimeout(function () {
-            		                window.open("learn_content.html")
+            		                window.open("select_user.html")
             		            }, 1500)
             		        }
             		        else {

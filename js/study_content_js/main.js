@@ -105,7 +105,18 @@ jQuery(document).ready(function($){
 		return window.getComputedStyle(imageWrapper.get(0), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "").split(', ');
 	}
 
-   
+   //add Document content by json data
+      function addDocument(source_txt){
+              //用append加入元素快
+              $(".cd-images-list").append("<li> <h2>"+ source_txt.title +"</h2>\n" +
+                  "<video width=\"100%\" controls=\"controls\" style='box-shadow: 0px 0px 10px 0px #333333;'>\n" +
+                  "<source src=\"" + video_on_hand + "\"type=\"video/mp4\">\n" +
+                  "<source src=\"movie.ogg\" type=\"video/ogg\">\n" +
+                  "您的浏览器不支持 HTML5 video 标签。\n" +
+                  "</video> </li>");
+              $("div ul").last().append("<li> <div> <h2>"+source_txt.title+"</h2> <p>" +
+                  source_txt.abstract +" </p> "+" </div> </li>");
+      }
 
     //add Document content_back by json data
     function addDocument_2(demoContent){
@@ -131,18 +142,7 @@ jQuery(document).ready(function($){
 });
 
 
- //add Document content by json data
-    function addDocument(source_txt){
-            //用append加入元素快
-            $(".cd-images-list").append("<li> <h2>"+ source_txt.title +"</h2>\n" +
-                "<video width=\"100%\" controls=\"controls\" style='box-shadow: 0px 0px 10px 0px #333333;'>\n" +
-                "<source src=\"" + video_on_hand + "\"type=\"video/mp4\">\n" +
-                "<source src=\"movie.ogg\" type=\"video/ogg\">\n" +
-                "您的浏览器不支持 HTML5 video 标签。\n" +
-                "</video> </li>");
-            $("div ul").last().append("<li> <div> <h2>"+source_txt.title+"</h2> <p>" +
-                source_txt.abstract +" </p> "+" </div> </li>");
-    }
+ 
 
 
 

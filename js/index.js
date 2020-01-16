@@ -42,6 +42,8 @@ ws_manager = Object.defineProperty(ws_manager, 'socket_exist',{
 	})
 ws_manager.socket_exist = false;
 
+source_txt = Object.defineProperties(source_txt, '')
+
 $(document).ready(function(){
 	//学习目录初始化
 	myChart = echarts.init(document.getElementById('charts'));
@@ -102,8 +104,6 @@ $(document).ready(function(){
 		  }
 		});
 	    box.open();
-		
-
 });
 
 //学习目录请求封装
@@ -273,7 +273,6 @@ function WebSocket_index(cookie)
 						Object.assign(source_txt, received_msg);
 						source_txt.hasOwnProperty('video') && (video_on_hand = source_txt.video);
 						source_id_now = source_txt.source_id;
-						addDocument(source_txt);
 						//用户点击节点
 						req_2_warpper(0, 0);
 						break;
