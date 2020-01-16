@@ -138,8 +138,7 @@ function req_2_warpper(chapter_id, event_id)
 //生成请求学习目录参数
 function generater_req_0()
 {
-	var time_clock = new Date();
-	req_time_stamps[0] = time_clock.getTime();
+	req_time_stamps[0] = new Date().getTime();
 	//console.log(Object.assign({}, {request_index: 0, time_stamp: temp_time}));
 	return Object.assign({}, {request_index: 0, time_stamp: req_time_stamps[0]});
 }
@@ -147,8 +146,7 @@ function generater_req_0()
 //生成请求学习内容参数
 function generater_req_1(source_id, chapter_id)
 {
-	var time_clock = new Date();
-	req_time_stamps[1] = time_clock.getTime();
+	req_time_stamps[1] = new Date().getTime();
 	console.log(Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id}));
 	console.log("send:" + Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id}));
 	return Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id});
@@ -157,8 +155,7 @@ function generater_req_1(source_id, chapter_id)
 //生成发送学习行为参数
 function generater_req_2(source_id, chapter_id, event_id)
 {
-	var time_clock = new Date();
-	req_time_stamps[2] = time_clock.getTime();
+	req_time_stamps[2] = new Date().getTime();
 	return Object.assign({}, {
 								request_index: 2, 
 								time_stamp: req_time_stamps[2], 
@@ -176,7 +173,8 @@ function generater_req_2(source_id, chapter_id, event_id)
 
 //有效时间检测
 function get_time_valid(time_index, pre_judge_time)
-{
+{	
+	console.log(typeof(pre_judge_time));
 	return (req_time_stamps[time_index] && typeof(pre_judge_time)=='number' ) ? (req_time_stamps[time_index] === pre_judge_time): false;
 }
 
@@ -256,9 +254,10 @@ function WebSocket_index(cookie)
 		  console.log(received_msg);
 		if(received_msg !== null && received_msg.hasOwnProperty('response_index') ){
 			 //学习资源接收参数解析
-			 console.log(get_time_valid(received_msg.response_index, received_msg.req_time_stamp));
+			 //console.log("time_check");
+			 //console.log(get_time_valid(received_msg.response_index, received_msg.req_time_stamp));
 			 if(get_time_valid(received_msg.response_index, received_msg.req_time_stamp)){
-				 //console.log(received_msg.response_index)
+				 console.log(received_msg.response_index)
 				switch(received_msg.response_index)
 				{
 					case 0:

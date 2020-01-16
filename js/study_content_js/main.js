@@ -174,7 +174,7 @@ function init_graph(graph_data, myChart){
                     initLayout: 'circular',
                     repulsion: 1000,
                     gravity: 0.1,
-                    edgeLength : 150
+                    edgeLength : 300
                 },
 
                 data: graph_data.nodes,
