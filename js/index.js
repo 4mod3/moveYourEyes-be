@@ -9,12 +9,14 @@ var picture_img_array=new Array();
 //socket连接对象
 //请求时间戳数组
 var req_time_stamps = new Array(3);
-var time_clock = new Date();
+
 var	graph_data = new Object();
 var source_txt = new Object();
 var send_action_status = true;
 var myChart;
 var video_on_hand;
+
+var chapter_id_now;
 var source_id_now;
 //记录页面打开状态，防止页面刷新时仍然执行页面关闭函数
 var windowstatus=true;
@@ -118,7 +120,7 @@ function req_0_warpper()
 //学习内容请求封装
 function req_1_warpper()
 {
-	send_msg(ws_manager.ws, generater_req_1());
+	send_msg(ws_manager.ws, generater_req_1(source_id_now, chapter_id_now));
 }
 
 //学习行为发送封装
@@ -126,7 +128,7 @@ function req_1_warpper()
 function req_2_warpper(chapter_id, event_id)
 {
 	if(send_action_status){
-		send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, 4));
+		send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, event_id));
 		send_action_status = false;
 	}else{
 		console.log("warning, action sending is bussy!");
@@ -136,27 +138,30 @@ function req_2_warpper(chapter_id, event_id)
 //生成请求学习目录参数
 function generater_req_0()
 {
-	var temp_time = time_clock.getTime();
-	req_time_stamps[0] = temp_time;
-	return Object.assign({}, {request_index: 0, time_stamp: temp_time});
+	var time_clock = new Date();
+	req_time_stamps[0] = time_clock.getTime();
+	//console.log(Object.assign({}, {request_index: 0, time_stamp: temp_time}));
+	return Object.assign({}, {request_index: 0, time_stamp: req_time_stamps[0]});
 }
 
 //生成请求学习内容参数
 function generater_req_1(source_id, chapter_id)
 {
-	var temp_time = time_clock.getTime();
-	req_time_stamps[1] = temp_time;
-	return Object.assign({}, {request_index: 1, time_stamp: temp_time, source_id: source_id, chapter_id: chapter_id});
+	var time_clock = new Date();
+	req_time_stamps[1] = time_clock.getTime();
+	console.log(Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id}));
+	console.log("send:" + Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id}));
+	return Object.assign({}, {request_index: 1, time_stamp: req_time_stamps[1], source_id: source_id, chapter_id: chapter_id});
 }
 
 //生成发送学习行为参数
 function generater_req_2(source_id, chapter_id, event_id)
 {
-	var temp_time = time_clock.getTime();
-	req_time_stamps[2] = temp_time;
+	var time_clock = new Date();
+	req_time_stamps[2] = time_clock.getTime();
 	return Object.assign({}, {
 								request_index: 2, 
-								time_stamp: temp_time, 
+								time_stamp: req_time_stamps[2], 
 								source_id: source_id, 
 								chapter_id: chapter_id,
 								event_id: event_id
@@ -251,26 +256,31 @@ function WebSocket_index(cookie)
 		  console.log(received_msg);
 		if(received_msg !== null && received_msg.hasOwnProperty('response_index') ){
 			 //学习资源接收参数解析
-			 if(!get_time_valid(received_msg.response_index, received_msg.req_time_stamps)){
+			 console.log(get_time_valid(received_msg.response_index, received_msg.req_time_stamp));
+			 if(get_time_valid(received_msg.response_index, received_msg.req_time_stamp)){
+				 //console.log(received_msg.response_index)
 				switch(received_msg.response_index)
 				{
 					case 0:
 						delete received_msg.response_index;
-						delete received_msg.req_time_stamps;
+						delete received_msg.req_time_stamp;
 						(received_msg.hasOwnProperty('nodes') && received_msg.hasOwnProperty('edges')) && 
 							(Object.assign(graph_data, received_msg));
 						init_graph(graph_data, myChart);
+						break;
 					case 1:
 						delete received_msg.response_index;
-						delete received_msg.req_time_stamps;
+						delete received_msg.req_time_stamp;
 						Object.assign(source_txt, received_msg);
 						source_txt.hasOwnProperty('video') && (video_on_hand = source_txt.video);
 						source_id_now = source_txt.source_id;
 						addDocument(source_txt);
 						//用户点击节点
 						req_2_warpper(0, 0);
+						break;
 					case 2:
 						send_action_status != send_action_status;
+						break;
 				} 
 			 }else{
 				 console.log("warning, data frames blocked!");
@@ -353,6 +363,7 @@ function send_msg(ws, send_obj)
 		console.log("error, sending attribute wrong!");
 	}
 	else if(ws_manager.socket_exist){
+		console.log(JSON.stringify(send_obj));
 		ws.send(JSON.stringify(send_obj));	
 	}else{
 		window.open("hello.html",'_self');
