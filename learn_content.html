@@ -1,20 +1,21 @@
 <!doctype html>
 <html lang="zh" class="no-js">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>节点内容</title>
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/study_content_css/reset.css"> <!-- CSS reset -->
-	<link rel="stylesheet" type="text/css" href="css/study_content_css/default.css">
-	<link rel="stylesheet" href="css/study_content_css/style.css"> <!-- Resource style -->
-	<link rel="stylesheet" href="css/study_content_css/style.min.css"><!--nav-->
-	<link rel="stylesheet" href="js/jBox.all.css">
-	
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>节点内容</title>
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/study_content_css/reset.css"> <!-- CSS reset -->
+		<link rel="stylesheet" type="text/css" href="css/study_content_css/default.css">
+		<link rel="stylesheet" href="css/study_content_css/style.css"> <!-- Resource style -->
+		<link rel="stylesheet" href="css/study_content_css/style.min.css">
+		<!--nav-->
+		<link rel="stylesheet" href="js/jBox.all.css">
 
-	<style>
-		/* *{ margin:0; padding:0; } */
+
+		<style>
+			/* *{ margin:0; padding:0; } */
 		html{height: 100%; width: 100%;}
 		body{ height: 100%; width: 100%; font-family:arial; position:fixed; background-color:#2c343c ;}
 		body.sideMenu{ margin:0; -webkit-transform:none; transform:none; }
@@ -154,56 +155,57 @@
 		}
 		#wrap > label:hover{ background:#000; }
 	</style>
-</head>
-<body style="width: 100%;height:100%;">
-	<!--nav-->
-	<input type='checkbox' id='sideToggle'>
-	<aside>
-		<div class="nav_div">
-			<div class="nav_div_title">
-				<h1 class="nav_h">菜单栏</h1>
+	</head>
+	<body style="width: 100%;height:100%;">
+		<!--nav-->
+		<input type='checkbox' id='sideToggle'>
+		<aside>
+			<div class="nav_div">
+				<div class="nav_div_title">
+					<h1 class="nav_h">菜单栏</h1>
+				</div>
+				<div id="nav_div_h1" class="nav_div_h" onmouseenter="changeBG1()" onmouseleave="changeBG1_1()">
+					<p class="nav_h">返回首页</p>
+					</a>
+				</div>
+				<div id="nav_div_h2" class="nav_div_h" onmouseenter="changeBG2()" onmouseleave="changeBG2_1()">
+					<p class="nav_h">返回目录</p>
+				</div>
 			</div>
-			<div id="nav_div_h1" class="nav_div_h" onmouseenter="changeBG1()" onmouseleave="changeBG1_1()">
-				<p class="nav_h">返回首页</p>
-				</a>
-			</div>
-			<div id="nav_div_h2" class="nav_div_h" onmouseenter="changeBG2()" onmouseleave="changeBG2_1()">
-				<p class="nav_h">返回目录</p>
-			</div>
-		</div>
-	</aside>
+		</aside>
 
-	<div id='wrap'>
-		<label id='sideMenuControl' for='sideToggle'>=</label>
-	</div>
+		<div id='wrap'>
+			<label id='sideMenuControl' for='sideToggle'>=</label>
+		</div>
 
 		<div class="htmleaf-container" id="main">
-				
-				<section id="scene" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0" data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
-					<div class="layer main" data-depth="2">
-						
-						<div id="charts"  style="width: 3000px;height:3000px"></div>
-						
-					</div>
-				</section>
-			</div>
+
+			<section id="scene" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0"
+			 data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
+				<div class="layer main" data-depth="2">
+
+					<div id="charts" style="width: 3000px;height:3000px"></div>
+
+				</div>
+			</section>
+		</div>
 
 		<!--content-->
 		<div id="source_display_1" class="cd-image-block" style="display: none;">
 			<ul class="cd-images-list">
 				<li class="is-selected">
-						<h2>图片或视频</h2>
-						<video width="80%" controls="controls" style='box-shadow: 0px 0px 10px 0px #333333;'>
-							<source src="http://learning.dcloud.io/video/chapter_00.mp4" type="video/mp4">
-							<source src="movie.ogg" type="video/ogg">
-							您的浏览器不支持 HTML5 video 标签。
-						</video>
+					<h2>图片或视频</h2>
+					<video width="80%" controls="controls" style='box-shadow: 0px 0px 10px 0px #333333;'>
+						<source src="http://learning.dcloud.io/video/chapter_00.mp4" type="video/mp4">
+						<source src="movie.ogg" type="video/ogg">
+						您的浏览器不支持 HTML5 video 标签。
+					</video>
 				</li>
 
 			</ul> <!-- .cd-images-list -->
 		</div> <!-- .cd-image-block -->
 
-			<!-- .cd-content-block -->
+		<!-- .cd-content-block -->
 		<div id="source_display_2" class="cd-content-block" style="display: none;">
 			<ul>
 				<li class="is-selected">
@@ -211,7 +213,7 @@
 						<h2 id='control_h'></h2>
 						<p id='control_p'>
 						</p>
-					</div> 
+					</div>
 				</li>
 
 			</ul>
@@ -226,30 +228,31 @@
 		</ul>
 
 		<!--content-->
-		
-		<!-- <div class="content-container">
-				
-				<section id="text" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0" data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
-					<div class="layer2 main" data-depth="10">
-						
-						<div id="content" style="display: none;">
-							<div id="content_warpper">
-								<div id="content_text">
-									<p id="control_content"></p>
-								</div>
-								<div id="content_code">
-									<code id="control_content_code"></code>
-								</div>
-								<div id="comment_warpper">
-									
-								</div>
+
+		<div class="content-container">
+
+			<section id="text" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0"
+			 data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
+				<div class="layer2 main" data-depth="6">
+
+					<div id="content" style="display: none;">
+						<div id="content_warpper">
+							<div id="content_text">
+								<p id="control_content"></p>
+							</div>
+							<div id="content_code">
+								<code id="control_content_code"></code>
+							</div>
+							<div id="comment_warpper">
+
 							</div>
 						</div>
-						
 					</div>
-				</section>
-			</div> -->
-			<div id="content" style="display:none">
+
+				</div>
+			</section>
+		</div>
+		<!-- <div id="content" style="display:none">
 				<div id="content_box" data-depth="6">
 					<div id="content_all">
 						<div id="content_text">
@@ -283,44 +286,48 @@
 						<div class="comment_code"></div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 		<!-- .cd-main -->
-		
-		
+
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.js"></script>
 		<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.js"></script>
-		
-		
+
+
 		<script src="js/jquery-1.10.2.js"></script>
 		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-		
+
 		<script src="js/GlobalVariable.js"></script>
 		<script src="js/jBox.all.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/study_content_js/modernizr.js"></script>
 		<script src="js/study_content_js/main.js"></script> <!-- Resource jQuery -->
 		<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
-		
+
 		<script>
-            var content = document.getElementById('content');
-            var parallaxInstance = new Parallax (content,{
-                pointerEvents:true
+			var content = document.getElementById('content');
+			var parallaxInstance = new Parallax(content, {
+				pointerEvents: true
 			});
 			var scene = document.getElementById('scene');
 			var parallaxGraph = new Parallax(scene);
+
 			function changeBG1() {
-      		  	document.getElementById("nav_div_h1").classList = "selected";
+				document.getElementById("nav_div_h1").classList = "selected";
 			}
-			function changeBG2(){
+
+			function changeBG2() {
 				document.getElementById("nav_div_h2").classList = "selected";
 			}
+
 			function changeBG1_1() {
 				document.getElementById("nav_div_h1").classList = "nav_div_h";
 			}
-			function changeBG2_1(){
+
+			function changeBG2_1() {
 				document.getElementById("nav_div_h2").classList = "nav_div_h";
 			}
 		</script>
-</body>
+	</body>
 </html>
