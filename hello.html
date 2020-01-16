@@ -10,6 +10,8 @@
 	<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 	<script src="js/nqx.js"></script>
 	<script src="js/GlobalVariable.js"></script>
+	<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+	
 <title>登陆界面</title>
 </head>
 <body style="cursor: url(img/SizeAll.ani),auto">
@@ -87,23 +89,50 @@
 <script src='js/particles.js'></script>
 <script src='js/demo-button.js'></script>
 
-<div id="div4" style="display:none">
-	<link rel="stylesheet" href="css/num_keyboard.css" />
-	<!-- <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script> -->
-	<script src="js/nqx.js"></script>
-	<script src="js/GlobalVariable.js"></script>
-	<script src="js/num_keyboard.js"></script>
-	
-	<div id="mail">请输入注册邮箱（默认为QQ邮箱）：<input type="text"  id="my_input" class="mykeyboard" style="height:31px;width:200px;border:3px solid #FFE4C4"></div>
-	<script>
-		//默认出现位置在绑定元素的下方出现，如果底部距离不足，则在绑定元素的上部出现
-	    $('#my_input').mykeyboard();
-	      
-	   	//里面位置参数使用的是jquery语法，定位:fixed
-	    $('#my_input2').mykeyboard({'left':'300px','top':'400px'});
-	
-	
+<div id="register" style="display:none">
+	 <link rel="stylesheet" href="css/num_keyboard.css" /> 
+	 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script> 
+	 <script src="js/nqx.js"></script> 
+	 <script src="js/GlobalVariable.js"></script>
+	<script src="js/num_keyboard.js"></script> 
+	<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>	 -->
+	 <!-- <div id="mail">请输入注册邮箱（默认为QQ邮箱）：<input type="text"  id="my_input1" class="mykeyboard" style="height:31px;width:200px;border:3px solid #FFE4C4"></div>  -->
+	 <link rel="stylesheet" type="text/css" href="css/register1.css">
+	 <link rel="stylesheet" href="css/register_style.css">
+
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>眼动未来账号注册 <span>Move Your Eyes!</span></h1>
+		</header>
+		<div class="modal"> 
+		<div class="form">
+		  <form>
+			<label for="email" required="required" >注册邮箱:</label></br>
+			<input  type="text" id="my_input" class="mykeyboard" ><span id="my_input" style="font-size:22px;vertical-align: -15px;">@qq.com</span>
+			<button type="button" class="zhuce" >注 册</button>
+		  </form>
+		</div>
+		<div class="invite">
+			<!-- <div class="logo"><img src="img/logo.jpg"  heigth="300px" width="400px" ></img></div> -->
+		  <h3 class="zhishi">眼动点击文本框或向左转动头部，即可弹出键盘呦~</h3>
+		  <div class="nope">如果你没有QQ账号，也可以选择在这里新注册一个呐~</div>
+		</div>
+	</div>
+	</div>
+
+	<script type="text/javascript">
+ 		// $(document).keydown(function(){
+			// $("#my_input").css("background-color","yellow");
+  		//   $("#my_input").mykeyboard({'left':'720px','top':'10px'});
+  		 	// });
+		$("#my_input").mykeyboard({'left':'720px','top':'10px'});
+		//  $(document).on('keydown', function(event){
+		// 	if( event.which=='65' ) 
+		// 	{mykeyboard({'left':'720px','top':'10px'})
+		//  }
 	</script>
+	<!-- <script>window.omkeydown=mykeyboard({'left':'720px','top':'10px'})</script> -->
 </div>
+<!-- <script src="js/num_keyboard.js"></script> -->
 </body>
 </html>
