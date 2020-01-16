@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Mali');
+
+$bg-url: 'https://zephyo.github.io/22Days/code/11/graphics/Background.png';
+
+.ball {
+  pointer-events: none;
+  position: absolute; 
+  border-radius: 50%; 
+  animation: implode 10s ease-in-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+@keyframes implode {
+  0% {
+    transform: scale(0)
+  }
+  5%, 30% {
+    transform: scale(1)
+  }
+  100% {
+    transform: scale(0)
+  }
+}
+
+.frame, #wrap, html, body, .block-mobile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+* {
+  background-repeat: no-repeat;
+}
+
+body {
+  font-family: 'Mali', cursive;
+  background-image: url($bg-url);
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  background-position: center top;
+}
+
+.perspective {
+  perspective: 1800px;
+  perspective-origin:50% 10%;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+#avatar {
+  position: absolute;
+  transform-origin: bottom;
+  left: 0;
+  bottom: 0;
+  right: 9vw;
+  margin: auto;
+  width: 770px;
+  height: 890px;
+  z-index: 20;
+  // transition: transform 0.3s ease;
+  div {
+    position: absolute;
+    transform-style: preserve-3d;
+  }
+}
+
+
+
+.body {
+  bottom: -40px;
+  left: 0;
+  transform: translateZ(0px);
+  .head {
+    top: -195px;
+    left: 138px;
+    
+    img {
+      transform: translateZ(15px);
+    }
+    
+    .bun {
+      top: -70px;
+      left: 50px;
+      transform: translateZ(-50px);
+    }
+    
+    .eyes {
+    top: 175px;
+    left: 97px;
+    transform: translateZ(-5px);
+      transition: transform 0.2s;
+    }
+  }
+}
+
+.upperarm {
+  top: 188px;
+  right: -190px;
+  transform: translateZ(40px);
+  transform-origin: 75px 70px;
+  transition: transform 0.3s;
+  .forearm {
+    bottom: -5px;
+    right: -5px;
+    transform-origin: 70% 88%;
+    transform: translateZ(15px) rotateX(-10deg);
+    transition: transform 0.2s;
+    .hand {
+      top: -202px;
+      left: -170px;
+      transform-origin: 70% 90%;
+      transform: translateZ(10px) rotateX(10deg);
+      transition: transform 0.2s ease;
+      
+      .brush {
+        top: -165px;
+        left: 115px;
+        transform-origin: bottom;
+        transform: rotateX(-20deg) scale(1.1);
+      }
+    }
+  }
+}
+
+.sig {
+  position: absolute;
+  right: 1vh;
+  bottom: 1vh;
+  color: #986d5b;
+}
+
+.block-mobile {
+  background: linear-gradient(to right, rgba(#ffecd2,1) 0%, rgba(#fcb69f,0.6) 100%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c43a30;
+}
+
+
+
+

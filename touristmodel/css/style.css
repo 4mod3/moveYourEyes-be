@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css?family=Mali");
+.ball {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-animation: implode 10s ease-in-out;
+          animation: implode 10s ease-in-out;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+@-webkit-keyframes implode {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  5%, 30% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+
+@keyframes implode {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  5%, 30% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+.frame, #wrap, html, body, .block-mobile {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+* {
+  background-repeat: no-repeat;
+}
+
+body {
+  font-family: 'Mali', cursive;
+  background-image: url("https://zephyo.github.io/22Days/code/11/graphics/Background.png");
+  background-size: auto 100%;
+  background-repeat: repeat-x;
+  background-position: center top;
+}
+
+.perspective {
+  -webkit-perspective: 1800px;
+          perspective: 1800px;
+  -webkit-perspective-origin: 50% 10%;
+          perspective-origin: 50% 10%;
+}
+
+.preserve-3d {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+#avatar {
+  position: absolute;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  left: 0;
+  bottom: 0;
+  right: 9vw;
+  margin: auto;
+  width: 770px;
+  height: 890px;
+  z-index: 20;
+}
+#avatar div {
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+
+.body {
+  bottom: -40px;
+  left: 0;
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+.body .head {
+  top: -195px;
+  left: 138px;
+}
+.body .head img {
+  -webkit-transform: translateZ(15px);
+          transform: translateZ(15px);
+}
+.body .head .bun {
+  top: -70px;
+  left: 50px;
+  -webkit-transform: translateZ(-50px);
+          transform: translateZ(-50px);
+}
+.body .head .eyes {
+  top: 175px;
+  left: 97px;
+  -webkit-transform: translateZ(-5px);
+          transform: translateZ(-5px);
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.upperarm {
+  top: 188px;
+  right: -190px;
+  -webkit-transform: translateZ(40px);
+          transform: translateZ(40px);
+  -webkit-transform-origin: 75px 70px;
+          transform-origin: 75px 70px;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.upperarm .forearm {
+  bottom: -5px;
+  right: -5px;
+  -webkit-transform-origin: 70% 88%;
+          transform-origin: 70% 88%;
+  -webkit-transform: translateZ(15px) rotateX(-10deg);
+          transform: translateZ(15px) rotateX(-10deg);
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.upperarm .forearm .hand {
+  top: -202px;
+  left: -170px;
+  -webkit-transform-origin: 70% 90%;
+          transform-origin: 70% 90%;
+  -webkit-transform: translateZ(10px) rotateX(10deg);
+          transform: translateZ(10px) rotateX(10deg);
+  transition: -webkit-transform 0.2s ease;
+  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+}
+.upperarm .forearm .hand .brush {
+  top: -165px;
+  left: 115px;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: rotateX(-20deg) scale(1.1);
+          transform: rotateX(-20deg) scale(1.1);
+}
+
+.sig {
+  position: absolute;
+  right: 1vh;
+  bottom: 1vh;
+  color: #986d5b;
+}
+
+.block-mobile {
+  background: linear-gradient(to right, #ffecd2 0%, rgba(252, 182, 159, 0.6) 100%);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #c43a30;
+}
