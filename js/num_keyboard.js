@@ -7,14 +7,14 @@
         Keyboard.prototype = {
             //初始化生成界面
             init:function(){
-
+                console.log("get in init");
                 if(!$(this.$element).hasClass('mykeyboard')){
                     throw new Error('检测到该元素缺少mykeyboard属性,请添加');
                 }
                 if($('div.calculator').length >= 1){
                     $('div.calculator').remove();
                 }
-                var mykeyboard = $('<div class="calculator">\n' +
+                var my_keyboard = $('<div class="calculator">\n' +
                     '            <div class="row_line">\n' +
                     '                <span class="num_key" the_val="9">9</span><span class="num_key" the_val="8">8</span><span class="num_key" the_val="7">7</span><span class="btn_key my_exit">退出</span>\n' +
                     '            </div>\n' +
@@ -28,8 +28,8 @@
                     '                <span class="num_key zero" the_val="0">0</span><span class="num_key" the_val=".">.</span><span class="btn_key my_clear">清除</span>\n' +
                     '            </div>\n' +
                     '        </div>');
-
-                mykeyboard.appendTo('body');
+                    console.log("generater");
+                my_keyboard.appendTo('body');
 
                 if( this.options ){
 
@@ -54,10 +54,11 @@
                 this.my_ok();
                 this.my_backspace();
             },
+            
             //确定
             my_ok:function(){
                 var that = this;
-                $('.btn_key.ok').click(function(){
+                $(".btn_key.ok, .zhuce").click(function(){
                     console.log($(that.$element).val()+"@qq.com");
 					console.log(password);
 					console.log(username);
@@ -78,7 +79,7 @@
             		            $.cookie(data.cookiename, data.cookievalue, {expires: data.cookietime, path: '/'});
             		            alert('注册成功，将在几秒钟后自动跳转！');
             		            setTimeout(function () {
-            		                window.open("select_user.html")
+            		                window.open("learn_content.html")
             		            }, 1500)
             		        }
             		        else {
@@ -134,9 +135,9 @@
         $.fn.mykeyboard = function(options) {
 
                 this.on('focus',function(){
+                    console.log("getin myKeyboard");
                     var my = new Keyboard(this, options);
-                    my.init();
-                });
+                    my.init();});
+              };
 
-        };
 })(jQuery, window, document);

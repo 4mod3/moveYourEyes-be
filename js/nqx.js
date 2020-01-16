@@ -289,10 +289,10 @@ function showAndHidden1(){
 	  
 	  var div3=document.getElementById("div3");
 	  
-	  var div4=document.getElementById("div4");
+	  var register=document.getElementById("register");
 	  
 	  var div5=document.getElementById("particles-js");
-	  div4.style.display="none";
+	  register.style.display="none";
 	  div1.style.display="none";
 	  div2.style.display="block";
 	  div3.style.display="none";
@@ -310,10 +310,10 @@ function showAndHidden2(){
 	  
 	  var div3=document.getElementById("div3");
 	  
-	  var div4=document.getElementById("div4");
+	  var register=document.getElementById("register");
 	  
 	  var div5=document.getElementById("particles-js");
-	  div4.style.display="block";
+	  register.style.display="block";
 	  div1.style.display="none";
 	  div2.style.display="none";
 	  div3.style.display="none";
