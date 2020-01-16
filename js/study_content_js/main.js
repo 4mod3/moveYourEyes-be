@@ -106,17 +106,19 @@ jQuery(document).ready(function($){
 	}
 
    //add Document content by json data
-      function addDocument(source_txt){
-              //用append加入元素快
-              $(".cd-images-list").append("<li> <h2>"+ source_txt.title +"</h2>\n" +
-                  "<video width=\"100%\" controls=\"controls\" style='box-shadow: 0px 0px 10px 0px #333333;'>\n" +
-                  "<source src=\"" + video_on_hand + "\"type=\"video/mp4\">\n" +
-                  "<source src=\"movie.ogg\" type=\"video/ogg\">\n" +
-                  "您的浏览器不支持 HTML5 video 标签。\n" +
-                  "</video> </li>");
-              $("div ul").last().append("<li> <div> <h2>"+source_txt.title+"</h2> <p>" +
-                  source_txt.abstract +" </p> "+" </div> </li>");
-      }
+       function addDocument(Content_number,demoContent){
+           for(var i=0; i<Content_number;i++){
+               //用append加入元素快
+               $(".cd-images-list").append("<li> <a href='#0'> <h2>"+demoContent[i].Content_title+"</h2>\n" +
+                   "<video width=\"100%\" controls=\"controls\" style='box-shadow: 0px 0px 10px 0px #333333;'>\n" +
+                   "<source src=\"" + demoContent[i].Content_video + "\"type=\"video/mp4\">\n" +
+                   "<source src=\"movie.ogg\" type=\"video/ogg\">\n" +
+                   "您的浏览器不支持 HTML5 video 标签。\n" +
+                   "</video> </a> </li>");
+               $("div ul").last().append("<li> <div> <h2>"+demoContent[i].Content_title+"</h2> <p>" +
+                   demoContent[i].Content_focus_on+" </p> <p>  </p> <p>"+demoContent[i].Content_text+" </p> </div> </li>");
+           }
+       }
 
     //add Document content_back by json data
     function addDocument_2(demoContent){
@@ -131,19 +133,31 @@ jQuery(document).ready(function($){
     }
 
     //define Content Object
-    function Content( Content_title,Content_video,Content_focus_on,Content_text){
-        this.Content_title = Content_title;
-        this.Content_video = Content_video;
-        this.Content_focus_on = Content_focus_on;
-        this.Content_text = Content_text;
-    }
+        function Content( Content_title,Content_video,Content_focus_on,Content_text){
+            this.Content_title = Content_title;
+            this.Content_video = Content_video;
+            this.Content_focus_on = Content_focus_on;
+            this.Content_text = Content_text;
+        }
+		
+		
+	
 	
 	
 });
 
 
  
+function update_abstract(title_after, abstract_after){
+		var title_before = document.getElementById('control_h');
+		title_before.innerHTML = title_after;
+		var abstract_before = document.getElementById('control_p');
+		abstract_before.innerHTML = abstract_after;
+}
 
+function update_content(content_after, code_after){
+	
+}
 
 
 //echarts 生成学习目录

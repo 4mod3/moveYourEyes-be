@@ -95,10 +95,10 @@
 			position: absolute;
 			left: 0px;
 			top: 0px;
-			background-color: #2c343c;
-			width: 3000px;
-			height: 3000px;
-			padding: 250px;
+			background-color: #ffffff;
+			width: 2000px;
+			height: 2000px;
+			padding: 0;
 		}
 		#content_box,#content_box_2,#content_box_3,#content_box_4{
 			width: 100%;
@@ -180,7 +180,7 @@
 		<div class="htmleaf-container" id="main">
 				
 				<section id="scene" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0" data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
-					<div class="layer main" data-depth="1">
+					<div class="layer main" data-depth="2">
 						
 						<div id="charts"  style="width: 3000px;height:3000px"></div>
 						
@@ -208,9 +208,8 @@
 			<ul>
 				<li class="is-selected">
 					<div>
-						<h2>文本内容</h2>
-						<p>
-							内容
+						<h2 id='control_h'></h2>
+						<p id='control_p'>
 						</p>
 					</div> 
 				</li>
@@ -227,12 +226,34 @@
 		</ul>
 
 		<!--content-->
+		
+		<!-- <div class="content-container">
+				
+				<section id="text" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0" data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
+					<div class="layer2 main" data-depth="10">
+						
+						<div id="content" style="display: none;">
+							<div id="content_warpper">
+								<div id="content_text">
+									<p id="control_content"></p>
+								</div>
+								<div id="content_code">
+									<code id="control_content_code"></code>
+								</div>
+								<div id="comment_warpper">
+									
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+			</div> -->
 			<div id="content" style="display:none">
-				<div id="content_box" data-depth="1">
+				<div id="content_box" data-depth="6">
 					<div id="content_all">
 						<div id="content_text">
-							<h><b>文本</b></h>
-							<p>rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+							<p id="control_content">rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
 							Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem
 							sequi nesciunt, neque porro
 							quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci v'elit, sed quia non numquam eius modi

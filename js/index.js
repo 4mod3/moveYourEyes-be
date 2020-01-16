@@ -273,6 +273,7 @@ function WebSocket_index(cookie)
 						Object.assign(source_txt, received_msg);
 						source_txt.hasOwnProperty('video') && (video_on_hand = source_txt.video);
 						source_id_now = source_txt.source_id;
+						update_abstract(source_txt.title, source_txt.abstract);
 						//用户点击节点
 						req_2_warpper(0, 0);
 						break;
