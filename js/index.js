@@ -290,7 +290,9 @@ function WebSocket_index(cookie) {
 							req_2_warpper(0, 0);
 							break;
 						case 2:
+							
 							send_action_status != send_action_status;
+							console.log("send_action_status: "+send_action_status);
 							break;
 					}
 				} else {
