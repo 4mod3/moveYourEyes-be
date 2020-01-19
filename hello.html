@@ -6,46 +6,43 @@
 	<link rel="stylesheet" type="text/css" href="css/nqx.css"/>
 	<link rel="stylesheet" media="screen" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/base.css" />
-	<script src='https://libs.baidu.com/jquery/1.10.2/jquery.min.js'></script>
-	<!-- <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.js"></script> -->
-	<script src="js/nqx.js"></script>
-	<script src="js/GlobalVariable.js"></script>
-	<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
-	
+
 <title>登陆界面</title>
 </head>
 <body style="cursor: url(img/SizeAll.ani),auto">
 <div id="particles-js"></div>
 <div id="div1" style="display:block;">
-<canvas id="p1" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p1" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 </canvas>
-<canvas id="p2" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p2" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 </canvas>
-<canvas id="p3" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p3" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 </canvas>
-<canvas id="p4" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p4" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 </canvas>
-<canvas id="p5" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p5" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 </canvas>
-<canvas id="p6" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p6" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 <span>无法显示，请换一种浏览器继续尝试，谢谢！</span>
 </canvas>
-<canvas id="p7" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p7" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 <span>无法显示，请换一种浏览器继续尝试，谢谢！</span>
 </canvas>
-<canvas id="p8" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p8" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 <span>无法显示，请换一种浏览器继续尝试，谢谢！</span>
 </canvas>
-<canvas id="p9" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)">
+<canvas id="p9" height="150" width="150" onmouseover = "func(this)"  onmouseout = "func1(this)" style="background-image: url('img/bgBall.png');background-size:100%,100% ">
 <span>无法显示，请换一种浏览器继续尝试，谢谢！</span>
 </canvas>
 </div>
 <div id="div3" style="display:block">
+	<!--说明框-->
 	<div class="grid" id="grid">
 		<photo-card img="img/intro1.png" link="#"></photo-card>
 		<photo-card img="img/intro2.png" link="#"></photo-card>
 		<photo-card img="img/intro3.png" link="#"></photo-card>
 	</div>
+	<!--说明按钮-->
 	<div class="wrapper">
 		<div class="button _1" id="b2"> <span onclick="func2()">密码</span>
 			<div class="back"></div>
@@ -57,12 +54,13 @@
 		<div class="button _3" id="b4"> <span onclick="goToRegister()">注册</span>
 			<div class="back"></div>
 		</div>
-		<div class="button _4" id="b3"> <span onclick="reset()">重置</span>
+		<div class="button _4" id="b3"> <span onclick="reset()">退回</span>
 			<div class="back"></div>
 		</div>
 	</div>
 	</div>
 </div>
+	<!--过渡动画-->
 <div id="div2" class="out" style="display:none" >
 	<div class="fade-in">
 		<div class="container">
@@ -80,21 +78,11 @@
 		</div>
 	</div>
 </div>
-<!-- scripts -->
-<script src="js/particles.min.js"></script>
-<script src="js/app.js"></script>
-<script src="https://www.jq22.com/jquery/vue.min.js"></script>
-<script type="text/javascript" src="js/script.js"></script>
-<script src='js/anime.min.js'></script>
-<script src='js/particles.js'></script>
-<script src='js/demo-button.js'></script>
 
 <div id="register" style="display:none">
 	 <link rel="stylesheet" href="css/num_keyboard.css" /> 
-	 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script> 
-	 <script src="js/nqx.js"></script> 
-	 <script src="js/GlobalVariable.js"></script>
-	<script src="js/num_keyboard.js"></script> 
+	 <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	 <script src="js/num_keyboard.js"></script>
 	<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>	 -->
 	 <!-- <div id="mail">请输入注册邮箱（默认为QQ邮箱）：<input type="text"  id="my_input1" class="mykeyboard" style="height:31px;width:200px;border:3px solid #FFE4C4"></div>  -->
 	 <link rel="stylesheet" type="text/css" href="css/register1.css">
@@ -105,19 +93,19 @@
 			<h1>眼动未来账号注册 <span>Move Your Eyes!</span></h1>
 		</header>
 		<div class="modal"> 
-		<div class="form">
-		  <form>
-			<label for="email" required="required" >注册邮箱:</label></br>
-			<input  type="text" id="my_input" class="mykeyboard" ><span id="my_input" style="font-size:22px;vertical-align: -15px;">@qq.com</span>
-			<button type="button" class="zhuce" >注 册</button>
-		  </form>
+			<div class="form">
+			  <form>
+				<!--<label for="email" required="required" >注册邮箱:</label></br>-->
+				<input  type="text" id="my_input" class="mykeyboard" ><span id="my_input2" style=" font-size:22px;vertical-align: -15px;">@qq.com</span>
+				<button type="button" class="zhuce" >注 册</button>
+			  </form>
+			</div>
+			<div class="invite">
+				<!-- <div class="logo"><img src="img/logo.jpg"  heigth="300px" width="400px" ></img></div> -->
+			  <h3 class="zhishi">眼动点击文本框或向左转动头部，即可弹出键盘呦~</h3>
+			  <div class="nope">如果你没有QQ账号，也可以选择在这里新注册一个呐~</div>
+			</div>
 		</div>
-		<div class="invite">
-			<!-- <div class="logo"><img src="img/logo.jpg"  heigth="300px" width="400px" ></img></div> -->
-		  <h3 class="zhishi">眼动点击文本框或向左转动头部，即可弹出键盘呦~</h3>
-		  <div class="nope">如果你没有QQ账号，也可以选择在这里新注册一个呐~</div>
-		</div>
-	</div>
 	</div>
 
 	<script type="text/javascript">
@@ -131,9 +119,23 @@
 		// 	{mykeyboard({'left':'720px','top':'10px'})
 		//  }
 	</script>
+	<!-- scripts -->
+	<script src="js/particles.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="https://www.jq22.com/jquery/vue.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script src='js/anime.min.js'></script>
+	<script src='js/particles.js'></script>
+	<script src='js/demo-button.js'></script>
+	<script src='https://libs.baidu.com/jquery/1.10.2/jquery.min.js'></script>
+	<!--<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>-->
+	<script src="js/nqx.js"></script>
+	<script src="js/GlobalVariable.js"></script>
+	<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
 	<!-- <script>window.omkeydown=mykeyboard({'left':'720px','top':'10px'})</script> -->
+	<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+	<!-- <script src="js/num_keyboard.js"></script> -->
 </div>
-<!-- <script src="js/num_keyboard.js"></script> -->
-<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+
 </body>
 </html>

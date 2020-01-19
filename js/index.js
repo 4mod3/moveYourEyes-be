@@ -76,6 +76,7 @@ $(document).ready(function() {
 				this.setTitle('<div class="ajax-sending">Sending AJAX request...正在检查你身份和网络环境</div>');
 				if (cookie == null) {
 					alert('未在系统上检测到你的登陆痕迹，关闭提示窗之后将会自动跳转登陆界面');
+					//need to change back
 					window.open("hello.html", '_self');
 				};
 			},
@@ -285,14 +286,15 @@ function WebSocket_index(cookie) {
 							Object.assign(source_txt, received_msg);
 							source_txt.hasOwnProperty('video') && (video_on_hand = source_txt.video);
 							source_id_now = source_txt.source_id;
+							console.log(source_txt);
 							update_abstract(source_txt.title, source_txt.abstract);
+							update_content(source_txt.content.text,source_txt.content.code);
+							update_comment(source_txt.comment);
 							//用户点击节点
 							req_2_warpper(0, 0);
 							break;
 						case 2:
-							
 							send_action_status != send_action_status;
-							console.log("send_action_status: "+send_action_status);
 							break;
 					}
 				} else {

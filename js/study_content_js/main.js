@@ -153,15 +153,35 @@ jQuery(document).ready(function($) {
 
 function update_abstract(title_after, abstract_after) {
 	var title_before = document.getElementById('control_h');
-	title_before.innerHTML = title_after;
+	title_before.innerText = title_after;
 	var abstract_before = document.getElementById('control_p');
-	abstract_before.innerHTML = abstract_after;
+	abstract_before.innerText = abstract_after;
 }
 
 function update_content(content_after, code_after) {
-
+	var content_before = document.getElementById('control_content');
+	content_before.innerText = content_after;
+	var content_before = document.getElementById('control_code');
+	content_before.innerText = code_after;
 }
-
+function update_comment(comment){
+	var length = comment.length;
+	$("div#comment_all").innerHTML = "";
+	if(length >=6){
+		for(var i=0;i<6;i++){
+			$("div#comment_all").append("<div class='comment'>"+"<b>评论"+i+":</b><br>"+
+                "<div class='comment_text'><code>"+comment[i].text+"</code></div>"+"<b>代码:</b><br>"+
+            "<div class='comment_code'><code>"+comment[i].code+"</code></div></div>");
+		}
+	}
+	else{
+		for(var i=0;i<length;i++){
+            $("div#comment_all").append("<div class='comment'>"+"<b>评论"+i+":</b><br>"+
+                "<div class='comment_text'><code>"+comment[i].text+"</code></div>"+"<b>代码:</b><br>"+
+                "<div class='comment_code'><code>"+comment[i].code+"</code></div></div>");
+        }
+	}
+}
 
 //echarts 生成学习目录
 var option;

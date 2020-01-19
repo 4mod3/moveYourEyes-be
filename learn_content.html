@@ -66,7 +66,7 @@
 			width: 100%;
 			height: 100%;
 			font-family: "fantasy";
-			font-weight: 450;
+			font-weight: 400;
 			color: #fff1eb;
 		}
 		.nav_div_h{
@@ -97,8 +97,8 @@
 			left: 0px;
 			top: 0px;
 			background-color: #ffffff;
-			width: 2000px;
-			height: 2000px;
+			width: 4000px;
+			height: 4000px;
 			padding: 0;
 		}
 		#content_box,#content_box_2,#content_box_3,#content_box_4{
@@ -107,23 +107,24 @@
 			background-color: #feffe5;
 		}
 		#content_all{
-			width: 100%;
-			height: 65%;
+			width: 40%;
+			height: 100%;
 			display: block;
-			margin-bottom: 50px;
+			margin-right: 50px;
+			float: left;
 		}
 		#comment_all{
-			 width: 100%;
-			 height: 30%;
+			 width: 55%;
+			 height: 100%;
+			 float: left;
 			 display: block;
-			 margin-bottom: 50px;
+			 margin-right: 50px;
 		 }
-		#content_text,#comment_text{
-			width: 30%;
-			height: 100%;
-			margin-right: 50px;
+		#content_text{
+			width: 100%;
+			height: 50%;
+			margin-top: 50px;
 			background-color: #ffffff;
-			float: left;
 			border: 4px solid #808884;
 			box-shadow: 0 0 5px 5px #808884;
 			padding: 40px;
@@ -132,19 +133,39 @@
 			font-size: 24px;
 			color: #000;
 		}
-		.comment_code,.content_code{
-			width: 20%;
+		#content_code{
+			width: 100%;
 			height: 45%;
 			background-color: #feffe5;
-			margin: 30px;
-			float: left;
+			margin-top: 50px;
 			border: 4px solid #808884;
 			box-shadow: 0 0 5px 5px #808884;
 			padding: 40px;
-			line-height: 40px;
+			line-height: 30px;
 			font-family: 'IBM Plex Mono', monospace;
 			font-size: 24px;
 			color: #4b4846;
+		}
+		.comment{
+			width: 30%;
+			height: 45%;
+			margin: 30px;
+			float: left;
+			border: 4px solid #2F4056;
+			-webkit-box-shadow: 0 0 5px 5px #fff9ec;
+			-moz-box-shadow: 0 0 5px 5px #fff9ec;
+			box-shadow: 0 0 5px 5px #fff9ec;
+			padding: 40px;
+			line-height: 30px;
+			font-family: 'IBM Plex Mono', monospace;
+			font-size: 24px;
+			color: #4b4846;
+		}
+		.comment_text{
+			width: 100%
+		}
+		.comment_code{
+			width: 100%;
 		}
 		#content_code div,#comment_code div{
 			width: 400px;
@@ -174,23 +195,23 @@
 			</div>
 		</aside>
 
+		<!--nav button-->
 		<div id='wrap'>
 			<label id='sideMenuControl' for='sideToggle'>=</label>
 		</div>
 
+		<!--create node by Echart-->
 		<div class="htmleaf-container" id="main">
-
 			<section id="scene" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0"
 			 data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
-				<div class="layer main" data-depth="1">
-
+				<div class="layer main" data-depth="1.2">
 					<div id="charts" style="width: 3000px;height:3000px"></div>
-
 				</div>
 			</section>
 		</div>
 
 		<!--content-->
+			<!--video-->
 		<div id="source_display_1" class="cd-image-block" style="display: none;">
 			<ul class="cd-images-list">
 				<li class="is-selected">
@@ -201,111 +222,86 @@
 						您的浏览器不支持 HTML5 video 标签。
 					</video>
 				</li>
-
-			</ul> <!-- .cd-images-list -->
-		</div> <!-- .cd-image-block -->
-
+			</ul>
+		</div>
 		<!-- .cd-content-block -->
 		<div id="source_display_2" class="cd-content-block" style="display: none;">
 			<ul>
 				<li class="is-selected">
 					<div>
 						<h2 id='control_h'></h2>
-						<p id='control_p'>
-						</p>
+						<p id='control_p'></p>
 					</div>
 				</li>
-
 			</ul>
-
 			<button class="cd-close">Close</button>
 		</div>
 
-		<!-- .block-navigation -->
+		<!-- block navigation -->
 		<ul id="source_display_3" class="block-navigation" style="display: none">
 			<li><button class="cd-prev inactive">&larr; Prev</button></li>
 			<li><button class="cd-next">Next &rarr;</button></li>
 		</ul>
 
-		<!--content-->
+		<!--content detail-->
+		<!--<div class="content-container">-->
+			<!--<section id="text" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0"-->
+			 <!--data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">-->
+				<!--<div class="layer2 main" data-depth="6">-->
 
-		<div class="content-container">
+					<!--<div id="content" style="display: none;">-->
+						<!--<div id="content_warpper">-->
+							<!--<div id="content_text">-->
+								<!--<p id="control_content"></p>-->
+							<!--</div>-->
+							<!--<div id="content_code">-->
+								<!--<code id="control_content_code"></code>-->
+							<!--</div>-->
+							<!--<div id="comment_warpper">-->
 
-			<section id="text" data-pointer-events="true" data-x-origin="0.5" data-y-origin="0.5" data-scalar-y="150.0"
-			 data-scalar-x="100.0" data-friction-x="0.05" data-friction-y="0.05">
-				<div class="layer2 main" data-depth="6">
+							<!--</div>-->
+						<!--</div>-->
+					<!--</div>-->
 
-					<div id="content" style="display: none;">
-						<div id="content_warpper">
-							<div id="content_text">
-								<p id="control_content"></p>
-							</div>
-							<div id="content_code">
-								<code id="control_content_code"></code>
-							</div>
-							<div id="comment_warpper">
+				<!--</div>-->
+			<!--</section>-->
+		<!--</div>-->
 
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</section>
-		</div>
-		<!-- <div id="content" style="display:none">
-				<div id="content_box" data-depth="6">
+		<div id="content" style="display:none">
+				<div id="content_box" data-depth="8">
 					<div id="content_all">
 						<div id="content_text">
-							<p id="control_content">rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-							Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem
-							sequi nesciunt, neque porro
-							quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci v'elit, sed quia non numquam eius modi
-							tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.
-							Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-							consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui
-							dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis
-							praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident,
-							similique sunt in culpa, qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
-							Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio, cumque nihil
-							impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-							Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et
-							molestiae non recusandae. Itaque
-							earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores</p>
+							<b>正文</b>
+							<br>
+							<code id="control_content">f</code>
 						</div>
-						<div class="content_code">
-							<h><b>代码</b></h>
-							<code>impedit, quo minus id, quod maxime placeat, facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
-								Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet, ut et voluptates repudiandae sint et
-								molestiae non recusandae. Itaque
-								earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores</code>
+						<div id="content_code">
+							<b>代码</b>
+							<br>
+							<code id="control_code">d</code>
 						</div>
 					</div>
 
 					<div id="comment_all">
-						<div id="comment_text"><p></p></div>
-						<div class="comment_code"></div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 
 		<!-- .cd-main -->
 
-
+		<!--script-->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.js"></script>
 		<script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts.js"></script>
-
-
 		<script src="js/jquery-1.10.2.js"></script>
 		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-
 		<script src="js/GlobalVariable.js"></script>
 		<script src="js/jBox.all.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/study_content_js/modernizr.js"></script>
 		<script src="js/study_content_js/main.js"></script> <!-- Resource jQuery -->
 		<!--<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>-->
-
 		<script>
+			//？？？
 			var content = document.getElementById('content');
 			var parallaxInstance = new Parallax(content, {
 				pointerEvents: true
@@ -313,18 +309,16 @@
 			var scene = document.getElementById('scene');
 			var parallaxGraph = new Parallax(scene);
 
+			//菜单栏样式改变函数
 			function changeBG1() {
 				document.getElementById("nav_div_h1").classList = "selected";
 			}
-
 			function changeBG2() {
 				document.getElementById("nav_div_h2").classList = "selected";
 			}
-
 			function changeBG1_1() {
 				document.getElementById("nav_div_h1").classList = "nav_div_h";
 			}
-
 			function changeBG2_1() {
 				document.getElementById("nav_div_h2").classList = "nav_div_h";
 			}

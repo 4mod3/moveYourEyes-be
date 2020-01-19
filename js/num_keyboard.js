@@ -79,7 +79,7 @@
             		            $.cookie(data.cookiename, data.cookievalue, {expires: data.cookietime, path: '/'});
             		            alert('注册成功，将在几秒钟后自动跳转！');
             		            setTimeout(function () {
-            		                window.open("learn_content.html")
+            		                window.location.replace("learn_content.html")
             		            }, 1500)
             		        }
             		        else {
@@ -133,9 +133,8 @@
             }
         };
         $.fn.mykeyboard = function(options) {
-
                 this.on('focus',function(){
-                    console.log("getin myKeyboard");
+                    console.log("get in myKeyboard");
                     var my = new Keyboard(this, options);
                     my.init();});
               };
