@@ -18,6 +18,7 @@ var video_on_hand;
 
 var chapter_id_now;
 var source_id_now;
+var chapter_id_update;
 //记录页面打开状态，防止页面刷新时仍然执行页面关闭函数
 var windowstatus = true;
 
@@ -129,12 +130,13 @@ function req_1_warpper() {
 //学习行为发送封装
 //调用受限: source_txt已经正常返回
 function req_2_warpper(chapter_id, event_id) {
-	if (send_action_status) {
-		send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, event_id));
-		send_action_status = false;
-	} else {
-		console.log("warning, action sending is bussy!");
-	}
+	send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, event_id));
+	// if (send_action_status) {
+	// 	send_msg(ws_manager.ws, generater_req_2(source_id_now, chapter_id, event_id));
+	// 	send_action_status = false;
+	// } else {
+	// 	console.log("warning, action sending is bussy!");
+	// }
 }
 
 //生成请求学习目录参数
@@ -287,9 +289,14 @@ function WebSocket_index(cookie) {
 							source_txt.hasOwnProperty('video') && (video_on_hand = source_txt.video);
 							source_id_now = source_txt.source_id;
 							console.log(source_txt);
-							update_abstract(source_txt.title, source_txt.abstract);
-							update_content(source_txt.content.text,source_txt.content.code);
-							update_comment(source_txt.comment);
+							if(source_txt.chapter_id == 1) {
+                                update_abstract(source_txt.title, source_txt.abstract);
+                                update_content(source_txt.content.text, source_txt.content.code);
+                                update_comment(source_txt.comment);
+                            }
+                            else{
+							 	update_chapter(source_txt.title, source_txt.abstract, source_txt.text);
+							}
 							//用户点击节点
 							req_2_warpper(0, 0);
 							break;

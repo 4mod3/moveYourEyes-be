@@ -9,36 +9,7 @@ jQuery(document).ready(function($) {
 		blockNavigationPrev = blockNavigation.find('.cd-prev'),
 		//used to check if the animation is running
 		animating = false;
-
-	//on mobile - open a single project content when selecting a project image
-	imageWrapper.on('click', 'a', function(event) {
-		event.preventDefault();
-		var device = MQ();
-
-		(device == 'mobile') && updateBlock(imagesList.index($(this).parent('li')), 'mobile');
-	});
-
-	//on mobile - close visible project when clicking the .cd-close btn
-	contentWrapper.on('click', '.cd-close', function() {
-		var closeBtn = $(this);
-		if (!animating) {
-			animating = true;
-
-			closeBtn.removeClass('is-scaled-up').one(
-				'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-				function() {
-					contentWrapper.removeClass('is-visible').one(
-						'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',
-						function() {
-							animating = false;
-						});
-
-					$('.cd-image-block').removeClass('content-block-is-visible');
-					closeBtn.off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-				});
-		}
-	});
-
+		
 	//on desktop - update visible project when clicking the .block-navigation
 	blockNavigation.on('click', 'button', function() {
 		var direction = $(this),
@@ -47,18 +18,6 @@ jQuery(document).ready(function($) {
 		if (!direction.hasClass('inactive')) {
 			var index = (direction.hasClass('cd-next')) ? (indexVisibleblock + 1) : (indexVisibleblock - 1);
 			updateBlock(index);
-		}
-	});
-
-	//on desktop - update visible project on keydown
-	$(document).on('keydown', function(event) {
-		var device = MQ();
-		if (event.which == '65' && !blockNavigationNext.hasClass('inactive') && device == 'desktop') {
-			//go to next project
-			updateBlock(imagesList.index(imageWrapper.children('li.is-selected')) + 1);
-		} else if (event.which == '68' && !blockNavigationPrev.hasClass('inactive') && device == 'desktop') {
-			//go to previous project
-			updateBlock(imagesList.index(imageWrapper.children('li.is-selected')) - 1);
 		}
 	});
 
@@ -113,7 +72,19 @@ jQuery(document).ready(function($) {
 			/"/g, "").split(', ');
 	}
 
-	//add Document content by json data
+    //on desktop - update visible project on keydown
+    $(document).on('keydown', function(event) {
+        if (event.which == '65' && ! blockNavigationNext.hasClass('inactive')) {
+            send_msg(ws_manager.ws, generater_req_1(chapter_id_update, 2));
+            //go to next project
+            updateBlock(imagesList.index(imageWrapper.children('li.is-selected')) + 1);
+        } else if (event.which == '68' && !blockNavigationPrev.hasClass('inactive')) {
+            //go to previous project
+            updateBlock(imagesList.index(imageWrapper.children('li.is-selected')) - 1);
+        }
+    });
+
+    //add Document content by json data
 	function addDocument(Content_number, demoContent) {
 		for (var i = 0; i < Content_number; i++) {
 			//用append加入元素快
@@ -149,8 +120,6 @@ jQuery(document).ready(function($) {
 	}
 });
 
-
-
 function update_abstract(title_after, abstract_after) {
 	var title_before = document.getElementById('control_h');
 	title_before.innerText = title_after;
@@ -160,29 +129,42 @@ function update_abstract(title_after, abstract_after) {
 
 function update_content(content_after, code_after) {
 	var content_before = document.getElementById('control_content');
-	content_before.innerText = content_after;
-	var content_before = document.getElementById('control_code');
-	content_before.innerText = code_after;
-}
-function update_comment(comment){
-	var length = comment.length;
-	$("div#comment_all").innerHTML = "";
-	if(length >=6){
-		for(var i=0;i<6;i++){
-			$("div#comment_all").append("<div class='comment'>"+"<b>评论"+i+":</b><br>"+
-                "<div class='comment_text'><code>"+comment[i].text+"</code></div>"+"<b>代码:</b><br>"+
-            "<div class='comment_code'><code>"+comment[i].code+"</code></div></div>");
-		}
-	}
-	else{
-		for(var i=0;i<length;i++){
-            $("div#comment_all").append("<div class='comment'>"+"<b>评论"+i+":</b><br>"+
-                "<div class='comment_text'><code>"+comment[i].text+"</code></div>"+"<b>代码:</b><br>"+
-                "<div class='comment_code'><code>"+comment[i].code+"</code></div></div>");
-        }
-	}
+	content_before.innerHTML = "&nbsp;&nbsp;" + content_after;
+	var code_before = document.getElementById('control_code');
+	code_before.innerHTML = code_after.join(' ');
 }
 
+function update_comment(comment) {
+	var length = comment.length;
+	length = (length >= 6)? 6: length;
+	var result = '';
+	$("div#comment_all").empty();
+	for (var i = 0; i < length; i++) {
+		result = result + "<div class='comment'>" + "<b style=\"color = red; font-size = 200% \">--------------------------------------评论" + i + "--------------------------------------</b><br>" +
+			"<div class='comment_text'><code>" + "&nbsp;&nbsp;" +comment[i].text + "</code></div><br>" + "<b>---------------------------------------代码--------------------------------------</b><br>";
+		for (var j=0; j< comment[i].code.length; j++){
+			result += "<div class='comment_code'><code>" + comment[i].code[j] + "</code></div>";
+		}
+		result += "</div>";
+	}
+	$("div#comment_all").append(result);
+}
+
+function update_chapter(title_after,abstract_after,text_after){
+    var title_before_2 = document.getElementById('control_h_3');
+    //title_before_1.innerText = title_after;
+    title_before_2.innerText = title_after;
+    var abstract_before = document.getElementById('control_abstract_2');
+    abstract_before.innerText = abstract_after;
+    var text_before = document.getElementById('control_text');
+    text_before.innerText = text_after;
+
+}
+
+function remove_charpter(){
+	$(".cd-images-list").last().remove();
+	$("div ul").last().remove();
+}
 //echarts 生成学习目录
 var option;
 
@@ -258,7 +240,9 @@ function node_click_register(myChart) {
 		console.log(params);
 		chapter_id_now = 0;
 		console.log(generater_req_1(params.data.value, 1));
+		chapter_id_update = params.data.value;
 		send_msg(ws_manager.ws, generater_req_1(params.data.value, 1));
+		//send_msg(ws_manager.ws, generater_req_1(params.data.value, 2));
 		console.log("send message!");
 		$("div#main").fadeOut("slow", function() {
 			$("div#source_display_1").fadeIn("slow");
