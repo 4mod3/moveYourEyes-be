@@ -140,10 +140,10 @@ function update_comment(comment) {
 	var result = '';
 	$("div#comment_all").empty();
 	for (var i = 0; i < length; i++) {
-		result = result + "<div class='comment'>" + "<b style=\"color = red; font-size = 200% \">--------------------------------------评论" + i + "--------------------------------------</b><br>" +
-			"<div class='comment_text'><code>" + "&nbsp;&nbsp;" +comment[i].text + "</code></div><br>" + "<b>---------------------------------------代码--------------------------------------</b><br>";
+		result = result + "<div class='comment'>" + "<b style=\"color = red; font-size = 200% \">----------------------------------------评论" + i + "----------------------------------------</b><br>" +
+			"<div class='comment_text'><code>" + "&nbsp;&nbsp;" +comment[i].text + "</code></div><br>" + "<b>-----------------------------------------代码----------------------------------------</b><br>";
 		for (var j=0; j< comment[i].code.length; j++){
-			result += "<div class='comment_code'><code>" + comment[i].code[j] + "</code></div>";
+			result += "<div class='comment_code'><code>" + comment[i].code[j] + "</code></div><br>";
 		}
 		result += "</div>";
 	}
@@ -280,6 +280,7 @@ $("div#nav_div_h1").click(function() {
 	window.location.replace("index.html");
 })
 $("div#nav_div_h2").click(function() {
+	document.getElementById("sideToggle").checked = false;
 	$("div#source_display_2").fadeOut("fast");
 	$("ul#source_display_3").fadeOut("fast");
 	$("div#source_display_1").fadeOut("slow", function() {
