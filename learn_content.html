@@ -61,6 +61,18 @@
 			width: 100%;
 			height: 40px;
 			text-align: left;
+			/*display: inline;*/
+		}
+		#userImg{
+			border-radius: 50%;
+			border: 5px solid #FFFFFF;
+			width: 80px;
+			height: 80px;
+		}
+		#nav_h{
+			position: relative;
+			top: -50px;
+			left: 100px;
 		}
 		.nav_h{
 			width: 100%;
@@ -192,7 +204,8 @@
 		<aside>
 			<div class="nav_div">
 				<div class="nav_div_title">
-					<h1 class="nav_h">菜单栏</h1>
+					<img src="img/9.jpg" id="userImg">
+					<h1 class="nav_h" id="nav_h">菜单栏</h1>
 				</div>
 				<div id="nav_div_h1" class="nav_div_h" onmouseenter="changeBG1()" onmouseleave="changeBG1_1()">
 					<p class="nav_h">返回首页</p>
@@ -200,6 +213,9 @@
 				</div>
 				<div id="nav_div_h2" class="nav_div_h" onmouseenter="changeBG2()" onmouseleave="changeBG2_1()">
 					<p class="nav_h">返回目录</p>
+				</div>
+				<div id="nav_div_h3" class="nav_div_h" onmouseenter="changeBG3()" onmouseleave="changeBG3_1()" onclick="toInfo()">
+					<p class="nav_h">个人信息</p>
 				</div>
 			</div>
 		</aside>
@@ -224,7 +240,6 @@
 		<div id="source_display_1" class="cd-image-block" style="display: none;">
 			<ul class="cd-images-list">
 				<li class="is-selected">
-					<h2>图片或视频</h2>
 					<video width="80%" controls="controls" style='box-shadow: 0px 0px 10px 0px #333333;'>
 						<source src="http://learning.dcloud.io/video/chapter_00.mp4" type="video/mp4">
 						<source src="movie.ogg" type="video/ogg">
@@ -331,12 +346,21 @@
 			function changeBG2() {
 				document.getElementById("nav_div_h2").classList = "selected";
 			}
+			function changeBG3(){
+			    document.getElementById("nav_div_h3").classList = "selected";
+			}
 			function changeBG1_1() {
 				document.getElementById("nav_div_h1").classList = "nav_div_h";
 			}
 			function changeBG2_1() {
 				document.getElementById("nav_div_h2").classList = "nav_div_h";
 			}
+			function changeBG3_1() {
+				document.getElementById("nav_div_h3").classList = "nav_div_h";
+            }
+            function toInfo(){
+                window.location.replace("select_user.html");
+            }
 		</script>
 	</body>
 </html>

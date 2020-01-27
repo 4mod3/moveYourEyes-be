@@ -183,8 +183,9 @@ function goToRegister(){
              },
              success: function (data) {
                  if (data.login == true) {
-                     //console.log(data);
-                     $.cookie(data.cookiename, data.cookievalue, {expires: data.cookietime, path: '/'});
+                     $.cookie(data.cookiename, data.cookievalue,{expires: data.cookietime, path: '/'});
+                     $.cookie("nickname",data.nickname,{expires: data.cookietime, path: '/'});
+                     $.cookie("userimg",data.userimg,{expires: data.cookietime, path: '/'});
                      alert('登陆成功，将在几秒钟后自动跳转！');
                      setTimeout(function () {
                          window.location.replace("learn_content.html")

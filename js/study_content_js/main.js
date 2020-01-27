@@ -21,6 +21,14 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	//获取头像和昵称
+	var nickname =$.cookie("nickname");
+	var userimg = Domainname + $.cookie("userimg");
+    console.log("-------------------");
+	console.log(userimg);
+	console.log("-------------------");
+	document.getElementById("nav_h").innerText = nickname;
+	document.getElementById("userImg").src = userimg;
 	function updateBlock(n, device) {
 		if (!animating) {
 			animating = true;
@@ -280,7 +288,6 @@ $("div#nav_div_h1").click(function() {
 	window.location.replace("index.html");
 })
 $("div#nav_div_h2").click(function() {
-	document.getElementById("sideToggle").checked = false;
 	$("div#source_display_2").fadeOut("fast");
 	$("ul#source_display_3").fadeOut("fast");
 	$("div#source_display_1").fadeOut("slow", function() {

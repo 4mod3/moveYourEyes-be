@@ -87,7 +87,9 @@ $(document).ready(function() {
 			success: function(response) {
 				console.log(response);
 				if (response.pass == true) {
-					this.setContent('<div class="ajax-success">欢迎您的回归<tt>' + response.name + '. 请四处探索试试' + '</tt></div>');
+					var nickname = $.cookie("nickname");
+					console.log(nickname);
+					this.setContent('<div class="ajax-success">欢迎您的回归<tt>' + nickname + '. 请四处探索试试' + '</tt></div>');
 					/*for(var i=0;i<response.picture.length;i++){
 		    	  picture_path_array.push(response.picture[i]);
 		      }*/

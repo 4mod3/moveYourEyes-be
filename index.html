@@ -19,7 +19,7 @@
         .block{
             box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
             opacity: 1;
-            top: 20px;
+            /*top: 20px;*/
             -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
             -webkit-transition-property: -webkit-transform,opacity,box-shadow,top,left;
             transition-property: transform,opacity,box-shadow,top,left;
@@ -30,12 +30,12 @@
             transform-origin: 161px 100%;
             -webkit-transform: rotateX(0deg);
             transform: rotateX(0deg);
-            position: relative;
-            width: 360px;
+            /*position: relative;*/
+            width: 22%;
             /*border-top: 2px solid #D8312A;*/
-            height: 600px;
+            height: 85%;
             position: absolute;
-            left: 50px;
+            left: 5%;
             top: 10%;
             margin: auto;
             padding: 0px 30px 30px 30px;
@@ -61,8 +61,8 @@
             text-align: center;
         }
         .block-button-div{
-            margin: 200px auto 0 auto;
-            padding-left: 30px;
+            margin: 200px 5%;
+            /*padding-left: 30px;*/
 
         }
         .button{
@@ -116,9 +116,9 @@
         .intro{
             height: 100%;
             width: 40%;
-            position: fixed;
-            top: 65px;
-            left: 450px;
+            position: absolute;
+            top: 5%;
+            left: 28%;
             background-color: transparent;
         }
         .intro-div{
@@ -129,11 +129,18 @@
             border: 2px;
             border-color:crimson;
         }
+        #intro-div-1{
+            position: relative;
+            top: 0;
+            left: 0;
+        }
         .intro-div-img{
             width: 45%;
             height: 90%;
-            margin: 11px;
+            margin-left: 5px;
+            margin-top: 10px;
             float: left;
+            /*overflow:hidden;*/
             /* background-color:crimson; */
         }
         /*flip*/
@@ -148,6 +155,10 @@
         .flip-container, .front, .back {
             width: 176px;
             height: 198px;
+            /*width: 45%;*/
+            /*height: 90%;*/
+            /*width: 100em;*/
+            /*height: 120em;*/
         }
 
         /* flip speed goes here */
@@ -213,7 +224,7 @@
     </div>
 </a>
 <a id="user-model">
-    <div class="block" style="position:absolute; right: -1000px;top: 10%;">
+    <div class="block" style="position:absolute; left: 73%;top: 10%;">
         <div class="block-p">
             用户
         </div>
@@ -252,7 +263,7 @@
 <!--指示图片-->
 <div class="intro">
     <div class="intro-div">
-		
+		<div id="intro-div-1">
         <div class="intro-div-img">
             <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                 <div class="flipper">
@@ -290,6 +301,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </div>
     <div class="intro-div">

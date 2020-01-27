@@ -5,8 +5,6 @@
 // All data we are using for this demo we will store in the variable DemoAvatars
 
 
-
-
 // All the magic happens in the function generateAvatarJBox
 //操作主类
 var DemoAvatars = {
@@ -84,6 +82,11 @@ function generateAvatarJBox(initial)
 		        },
 		       success: function (data) {
 		      	  console.log("ok");
+		      	  $.cookie("nickname",DemoAvatars.Likedname[0],{expires: data.cookietime, path: '/'});
+		      	  var userimg = "http://yandongxunjing.club//eyepro/userimg/" + DemoAvatars.Likedname[0] + ".jpg";
+		      	  $.cookie("userimg",userimg,{expires: data.cookietime, path: '/'});
+		      	  alert("选择头像成功，即将跳转学习页面。");
+		      	  setTimeout(window.location.replace("learn_content.html"),3000);
 		      	  },
 		       error:function(){
 		    	   console.log("出错");
